@@ -1,0 +1,117 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mente maker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="light-mode"> <!-- Adicione a classe do tema padrão aqui -->
+    <header>
+        <div class="container">
+            <h1>Mente maker</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Início</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/sobre">Sobre</a></li>
+                    <button class="theme-toggle" onclick="toggleTheme()">Alternar Tema</button>
+
+                    <!-- Adicione mais links conforme necessário -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <article class="article-text">
+                <h2>Mente Maker: Aprenda Programação de Forma Gratuita</h2>
+                <p>
+                    O Mente Maker, idealizado por Junior Pereira, é um projeto dedicado a democratizar o acesso ao
+                    conhecimento em programação e tecnologia.
+                    Nossa missão é proporcionar educação de qualidade de forma gratuita, oferecendo uma ampla variedade
+                    de cursos e conteúdos para todos os níveis de aprendizado.
+
+                    Em nosso canal no YouTube, os iniciantes têm a oportunidade de dar os primeiros passos no mundo da
+                    programação, aprendendo desde os conceitos básicos até tópicos mais avançados. Com uma abordagem
+                    didática e acessível, buscamos tornar o aprendizado de programação uma experiência prazerosa e
+                    enriquecedora para todos os nossos espectadores.
+
+                    Nosso conteúdo abrange uma vasta gama de temas, desde introdução à programação, passando por
+                    linguagens de programação populares como Python, JavaScript e Banco de Dados, até o desenvolvimento
+                    de aplicativos móveis e web. Além disso, oferecemos tutoriais, dicas práticas e projetos prontos
+                    para que os alunos possam colocar em prática o que aprenderam.
+
+                    Acreditamos que o conhecimento em programação é uma ferramenta poderosa para o desenvolvimento
+                    pessoal e profissional, e estamos empenhados em fornecer os recursos necessários para que nossos
+                    alunos alcancem seus objetivos. Com o Mente Maker, você está convidado a embarcar em uma jornada de
+                    aprendizado transformadora, onde o acesso ao conhecimento é livre e ilimitado. Venha fazer parte
+                    dessa comunidade de aprendizes e torne-se um mestre da tecnologia!
+                </p>
+            </article>
+            <h3>Playlists Recomendadas</h3>
+            <div class="video-thumbnails">
+                <iframe width="300" height="200"
+                    src="https://www.youtube.com/embed/videoseries?list=PLpo2vYALH9e5JqNQmABa49nqTIvDqGzBP"
+                    frameborder="0" allowfullscreen></iframe>
+                <iframe width="300" height="200"
+                    src="https://www.youtube.com/embed/videoseries?list=PLpo2vYALH9e58UzWhvozuMAaK7vVS4_lP"
+                    frameborder="0" allowfullscreen></iframe>
+                <iframe width="300" height="200"
+                    src="https://www.youtube.com/embed/videoseries?list=PLpo2vYALH9e5ps7gHbCjmT35uAQIwbdl7"
+                    frameborder="0" allowfullscreen></iframe>
+            </div>
+            <h3>Tutoriais</h3>
+            <div class="video-thumbnails">
+                <iframe width="300" height="200"
+                    src="https://www.youtube.com/embed/0uYJFAplt-c?si=Z4av81vC9nNuIPUB"
+                    frameborder="0" allowfullscreen></iframe>
+                <iframe width="300" height="200"
+                    src="https://www.youtube.com/embed/t3_Uz2GdQuk?si=1it1kjNvyq5bkSWC"
+                    frameborder="0" allowfullscreen></iframe>
+                <iframe width="300" height="200"
+                    src="https://www.youtube.com/embed/j9-uSv5OCBI?si=Fi0yXimorVx3P_EJ"
+                    frameborder="0" allowfullscreen></iframe>
+            </div>
+            
+            <a href="https://www.youtube.com/@mentemaker">Confira o canal</a>
+            <!-- Adicione mais artigos conforme necessário -->
+            </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Mente Maker. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        // Função para alternar entre os temas
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+
+            // Armazena a preferência do tema em um cookie
+            const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+            document.cookie = `theme=${theme}; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+        }
+
+        // Verifica se existe um cookie de tema e aplica o tema correspondente
+        window.onload = function () {
+            const themeCookie = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('theme='));
+
+            if (themeCookie) {
+                const theme = themeCookie.split('=')[1];
+                document.body.classList.add(`${theme}-mode`);
+            }
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instalação e Uso do Python</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light-mode">
+  <header>
+    <div class="container">
+      <h1>Instalação e Uso do Python</h1>
+      <nav>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/sobre">Sobre</a></li>
+          <!-- Adicione mais links conforme necessário -->
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <article>
+        <h2>O que é Python?</h2>
+        <p>Python é uma linguagem de programação de alto nível, interpretada, de script, imperativa, orientada a objetos, funcional, de tipagem dinâmica e forte. Foi lançada por Guido van Rossum em 1991 e é amplamente usada em diversas áreas, incluindo desenvolvimento web, ciência de dados, automação, entre outras.</p>
+
+        <h2>Passo 1: Instalação do Python</h2>
+        <p>Para começar a usar Python, você precisa instalá-lo em seu sistema. Existem diferentes maneiras de fazer isso, mas a forma mais comum é baixar e instalar o Python a partir do site oficial.</p>
+        <p>Visite <a href="https://www.python.org/">https://www.python.org/</a> e baixe a versão mais recente do Python para o seu sistema operacional (Windows, macOS, Linux).</p>
+        <p>Siga as instruções de instalação fornecidas no site para concluir o processo de instalação.</p>
+
+        <h2>Passo 2: Verificar a Instalação</h2>
+        <p>Após a instalação, você pode verificar se o Python foi instalado corretamente abrindo um terminal (no Windows, você pode usar o Prompt de Comando ou o PowerShell) e digitando o seguinte comando:</p>
+        <div class="code-box">
+          <pre><code>python --version</code></pre>
+        </div>
+        <p>Isso deve exibir a versão do Python instalada em seu sistema.</p>
+
+        <h2>Passo 3: Executar um Script Python</h2>
+        <p>Agora que o Python está instalado, você pode começar a escrever e executar seus próprios scripts Python. Crie um novo arquivo com a extensão ".py" usando seu editor de texto favorito e adicione algum código Python.</p>
+        <p>Por exemplo, você pode criar um arquivo chamado <code>hello.py</code> com o seguinte conteúdo:</p>
+        <div class="code-box">
+          <pre><code>print("Hello, world!")</code></pre>
+        </div>
+        <p>Salve o arquivo e, em seguida, abra um terminal, navegue até o diretório onde o arquivo <code>hello.py</code> está localizado e execute o seguinte comando:</p>
+        <div class="code-box">
+          <pre><code>python hello.py</code></pre>
+        </div>
+        <p>Você deverá ver a saída "Hello, world!" no terminal.</p>
+
+        <h2>Conclusão</h2>
+        <p>Agora você está pronto para começar a explorar o mundo da programação com Python! Este tutorial abordou os passos básicos para instalar e usar o Python em seu sistema. Continue praticando e explorando as vastas possibilidades que o Python oferece.</p>
+      </article>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Meu Site. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Função para alternar entre os temas
+    function toggleTheme() {
+      const body = document.body;
+      body.classList.toggle('dark-mode');
+
+      // Armazena a preferência do tema em um cookie
+      const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+      document.cookie = `theme=${theme}; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+    }
+
+    // Verifica se existe um cookie de tema e aplica o tema correspondente
+    window.onload = function() {
+      const themeCookie = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('theme='));
+      
+      if (themeCookie) {
+        const theme = themeCookie.split('=')[1];
+        document.body.classList.add(`${theme}-mode`);
+      }
+    };
+  </script>
+</body>
+</html>

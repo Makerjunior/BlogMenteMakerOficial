@@ -1,0 +1,96 @@
+<!-- public/blog/postagem-sobre-typescript.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mente maker - Postagem sobre TypeScript</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Mente maker</h1>
+      <nav>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/sobre">Sobre</a></li>
+          <!-- Adicione mais links conforme necessário -->
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <article>
+      <h2>Tutorial: Hello, World! em TypeScript</h2>
+      <p>Neste tutorial, vamos criar um simples programa "Hello, World!" em TypeScript.</p>
+      <h3>O que é TypeScript e suas vantagens?</h3>
+      <p>TypeScript é um superconjunto tipado de JavaScript que é compilado para JavaScript puro. Ele adiciona recursos opcionais de tipagem estática ao JavaScript, o que pode ajudar os desenvolvedores a detectar e corrigir erros em tempo de compilação. Algumas vantagens do TypeScript incluem:</p>
+      <ul>
+        <li><strong>Tipagem Estática:</strong> Permite aos desenvolvedores declarar tipos para variáveis, parâmetros de função, propriedades de objetos, etc., o que ajuda a detectar erros de tipo antes mesmo de executar o código.</li>
+        <li><strong>Autocompletar:</strong> A tipagem estática permite que os IDEs forneçam recursos avançados de autocompletar e sugestões de código, melhorando a produtividade do desenvolvedor.</li>
+        <li><strong>Facilidade de Manutenção:</strong> O TypeScript torna o código mais legível e compreensível, facilitando a manutenção e colaboração em projetos de grande escala.</li>
+        <li><strong>Ecossistema JavaScript:</strong> Como o TypeScript é um superset de JavaScript, ele pode interagir perfeitamente com bibliotecas e frameworks JavaScript existentes, permitindo uma transição suave para o TypeScript em projetos já existentes.</li>
+      </ul>
+      <p>Essas são apenas algumas das vantagens do TypeScript, e sua adoção está crescendo rapidamente entre os desenvolvedores devido aos benefícios que ele oferece para o desenvolvimento de aplicativos modernos.</p>
+      
+      <h3>Passo 1: Instalação do VS Code</h3>
+      <p>Primeiro, vamos instalar o Visual Studio Code, um editor de código leve e poderoso.</p>
+      <p>Você pode baixar e instalar o VS Code gratuitamente em <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a>. Siga as instruções de instalação para o seu sistema operacional.</p>
+      
+      <h3>Passo 2: Instalação do Node.js</h3>
+      <p>Em seguida, precisamos instalar o Node.js, que inclui o npm (Node Package Manager) para gerenciar as dependências do projeto.</p>
+      <p>Você pode baixar e instalar o Node.js em <a href="https://nodejs.org/">https://nodejs.org/</a>. Siga as instruções de instalação para o seu sistema operacional.</p>
+      
+      <h3>Passo 3: Instalação do TypeScript</h3>
+      <p>Com o Node.js instalado, podemos usar o npm para instalar o TypeScript globalmente em nossa máquina. Abra o terminal (ou prompt de comando) e execute o seguinte comando:</p>
+      <div class="code-box">
+        <pre><code>npm install -g typescript</code></pre>
+      </div>
+      <p>Isso instalará o TypeScript globalmente, permitindo que você o utilize em qualquer projeto TypeScript.</p>
+      
+      <h3>Passo 4: Criar o arquivo TypeScript</h3>
+      <p>Agora, crie um novo diretório para o nosso projeto e navegue até ele no terminal. Dentro do diretório, crie um arquivo chamado <code>hello.ts</code> e adicione o seguinte código:</p>
+      <div class="code-box">
+        <pre><code>function sayHello(name: string) {
+      console.log(`Hello, ${name}!`);
+    }
+    
+    sayHello("World");</code></pre>
+      </div>
+      
+      <h3>Passo 5: Compilar o arquivo TypeScript</h3>
+      <p>Com o arquivo <code>hello.ts</code> criado, podemos usar o compilador TypeScript (tsc) para transformá-lo em JavaScript. No terminal, execute o seguinte comando:</p>
+      <div class="code-box">
+        <pre><code>tsc hello.ts</code></pre>
+      </div>
+      <p>Isso criará um arquivo JavaScript chamado <code>hello.js</code> com o código compilado.</p>
+      
+      <h3>Passo 6: Executar o programa</h3>
+      <p>Finalmente, podemos executar o programa JavaScript gerado com o Node.js. No terminal, execute o seguinte comando:</p>
+      <div class="code-box">
+        <pre><code>node hello.js</code></pre>
+      </div>
+      <p>Você deverá ver a saída "Hello, World!" no console.</p>
+      
+      <h3>Conclusão</h3>
+      <p>Parabéns! Você criou com sucesso um simples programa "Hello, World!" em TypeScript. Este é apenas o começo de sua jornada com TypeScript, e agora você pode começar a explorar os recursos poderosos que ele oferece para desenvolvimento de aplicativos mais robustos e seguros.</p>
+      
+   
+    </article>
+
+    
+  </div>
+  
+
+    <footer class="footer">
+        <div class="container">
+          <p>&copy; 2024 Mente Maker. Todos os direitos reservados.</p>
+        </div>
+      </footer>
+      
+
+</body>
+</html>
