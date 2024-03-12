@@ -1,3 +1,4 @@
+// src/app.ts
 import express from 'express';
 import path from 'path';
 
@@ -17,6 +18,8 @@ app.get('/toggle-theme', (req, res) => {
   res.redirect('back');
 });
 
+
+
 // Define o diretório de arquivos estáticos
 app.use(express.static(path.join(__dirname, '../public')));
 
@@ -30,17 +33,15 @@ app.get('/blog', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/blog.html'));
 });
 
-// Rota para a página sobre
 app.get('/sobre', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/sobre.html'));
 });
 
-// Rota para a página TypeScript
 app.get('/typescript', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/typescript.html'));
 }); 
 
-// Rota para a página Python
+
 app.get('/python', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/python.html'));
 }); 
