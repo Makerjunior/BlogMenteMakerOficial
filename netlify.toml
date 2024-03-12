@@ -1,33 +1,8 @@
 [build]
-  command = "npm run start"
+  command = "npm run build"
   functions = "lambda"
 
 [[redirects]]
-  from = "/toggle-theme*"
-  to = "/toggle-theme"
-  status = 200
-
-[[redirects]]
   from = "/*"
-  to = "/"
-  status = 200
-
-[[redirects]]
-  from = "/blog*"
-  to = "/blog"
-  status = 200
-
-[[redirects]]
-  from = "/sobre*"
-  to = "/sobre"
-  status = 200
-
-[[redirects]]
-  from = "/typescript*"
-  to = "/typescript"
-  status = 200
-
-[[redirects]]
-  from = "/python*"
-  to = "/python"
+  to = "/index.html"
   status = 200
