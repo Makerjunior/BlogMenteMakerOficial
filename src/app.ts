@@ -5,8 +5,8 @@ import cookieParser from 'cookie-parser';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware para analisar cookies
-app.use(cookieParser());
+// Middleware para analisar cookies update
+app.use(cookieParser()); 
 
 // Rota para alternar o tema
 app.get('/toggle-theme', (req, res) => {
