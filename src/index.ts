@@ -1,6 +1,29 @@
-import dotenv = require('dotenv');
-import { main } from "./app";
-dotenv.config();
+import express = require("express");
+import { router } from "./router";
+import path = require("path");
 
-main.server.listen(process.env.PORT ,
-     () => console.log(`Server is running ${process.env.PORT}`));
+class  Main{
+  private _server;
+  constructor(){
+    this._server = express();
+    this._middleware();
+    this._router();
+    this._server.use(express.static(path.join(__dirname, '../public')))
+    
+  }
+  private _middleware(){
+    this._server.use(express.json());
+  }
+  private  _router() {
+    this._server.use(router)
+  }
+
+  get server(){
+    return this._server;
+  }
+
+
+
+}
+
+export const main = new  Main()
