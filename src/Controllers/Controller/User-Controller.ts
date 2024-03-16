@@ -4,7 +4,7 @@ import path from "path";
 
 class UserController {
   public index(req: Request, res: Response) {
-  return  res.sendFile(`${PATH}/public/index.html`);
+  return  res.sendFile(`/public/index.html`);
 }
 public blog(req: Request, res: Response) {
   return  res.sendFile(`${PATH}/public/blog.html`);
