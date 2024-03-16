@@ -1,0 +1,1 @@
+export const PATH:any =__dirname;

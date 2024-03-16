@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="img/logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
@@ -14,6 +15,11 @@
         <nav>
             <ul>
                 <li><a href="/">Início</a></li>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                  <span id="theme-icon"></span> <!-- Ícone do tema claro -->
+                  <span id="theme-text"></span>
+              </button> 
+                
             </ul>
        
         </nav>
@@ -23,7 +29,9 @@
         <ul>
           <!-- <li><a href="/typescript"></a>Iniciando no mundo TypeScript<a></li> -->
             <li><a href="/typescript">Iniciando no mundo TypeScript</a></li>
-          <li><a href="/python">Iniciando no mundo Python</a></li>
+            <li><a href="/python">Iniciando no mundo Python</a></li>
+            <li><a href="/flask">Flask</a></li>
+
      
 
           <!-- Adicione mais postagens aqui -->
@@ -37,6 +45,6 @@
     </div>
   </footer>
 </div>
-  <script src="theme.js"></script>
+  <script src="js/theme.js"></script>
 </body>
 </html>
