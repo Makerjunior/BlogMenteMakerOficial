@@ -1,0 +1,50 @@
+<!-- public/blog.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog</title>
+  <link rel="icon" href="img/logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <div  class="container">
+        <h1 class="title">Blog</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Início</a></li>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                  <span id="theme-icon"></span> <!-- Ícone do tema claro -->
+                  <span id="theme-text"></span>
+              </button> 
+                
+            </ul>
+       
+        </nav>
+      </header>
+      <main class="container">
+        <h2>Minhas Postagens</h2>
+        <ul>
+          <!-- <li><a href="/typescript"></a>Iniciando no mundo TypeScript<a></li> -->
+            <li><a href="/typescript">Iniciando no mundo TypeScript</a></li>
+            <li><a href="/python">Iniciando no mundo Python</a></li>
+            <li><a href="/flask">Flask</a></li>
+
+     
+
+          <!-- Adicione mais postagens aqui -->
+        </ul>
+    
+  
+  </main>
+  <footer class="footer">
+    <div class="container">
+        <p>&copy; 2024 Mente Maker. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+</div>
+  <script src="js/theme.js"></script>
+</body>
+</html>

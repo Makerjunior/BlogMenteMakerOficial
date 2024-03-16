@@ -1,6 +1,6 @@
-import dotenv = require('dotenv');
-import { main } from ".";
-dotenv.config();
 
-main.server.listen(process.env.PORT ,
-     () => console.log(`Server is running ${process.env.PORT}`));
+import { main } from ".";
+
+
+main.server.listen(3000 ,
+     () => console.log(`Server is running 3000`));
