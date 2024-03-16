@@ -41,5 +41,3 @@ ocument.addEventListener('DOMContentLoaded', function() {
   console.log('O DOM foi carregado');
   // Você pode adicionar outras ações ou manipulações aqui
 });
-
-console.log("Tudo certo")

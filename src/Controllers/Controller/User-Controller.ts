@@ -4,22 +4,22 @@ import path from "path";
 
 class UserController {
   public index(req: Request, res: Response) {
-  return  res.sendFile(`/public/index.html`);
+  return  res.sendFile(`${PATH}/src/public/index.html`);
 }
 public blog(req: Request, res: Response) {
-  return  res.sendFile(`${PATH}/public/blog.html`);
+  return  res.sendFile(`${PATH}/src/public/blog.html`);
 }
 public python(req: Request, res: Response) {
-  return  res.sendFile(`${PATH}/public/python.html`);
+  return  res.sendFile(`${PATH}/src/public/python.html`);
 }
 public sobre(req: Request, res: Response) {
-  return  res.sendFile(`${PATH}/public/sobre.html`);
+  return  res.sendFile(`${PATH}/src/public/sobre.html`);
 }
 public typescript(req: Request, res: Response) {
-  return  res.sendFile(`${PATH}/public/typescript.html`);
+  return  res.sendFile(`${PATH}/src/public/typescript.html`);
 }
 public flask(req: Request, res: Response) {
-  return  res.sendFile(`${PATH}/public/flask.html`);
+  return  res.sendFile(`${PATH}/src/public/flask.html`);
 }
 }
 

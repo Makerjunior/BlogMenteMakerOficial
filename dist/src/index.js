@@ -9,7 +9,7 @@ class Main {
         this._server = express();
         this._middleware();
         this._router();
-        this._server.use(express.static(path.join(__dirname, '../public')));
+        this._server.use(express.static(path.join(__dirname, 'public')));
     }
     _middleware() {
         this._server.use(express.json());

@@ -4,22 +4,22 @@ exports.userController = void 0;
 const variaveis_1 = require("../../../variaveis");
 class UserController {
     index(req, res) {
-        return res.sendFile(`${variaveis_1.PATH}/public/index.html`);
+        return res.sendFile(`${variaveis_1.PATH}/src/public/index.html`);
     }
     blog(req, res) {
-        return res.sendFile(`${variaveis_1.PATH}/public/blog.html`);
+        return res.sendFile(`${variaveis_1.PATH}/src/public/blog.html`);
     }
     python(req, res) {
-        return res.sendFile(`${variaveis_1.PATH}/public/python.html`);
+        return res.sendFile(`${variaveis_1.PATH}/src/public/python.html`);
     }
     sobre(req, res) {
-        return res.sendFile(`${variaveis_1.PATH}/public/sobre.html`);
+        return res.sendFile(`${variaveis_1.PATH}/src/public/sobre.html`);
     }
     typescript(req, res) {
-        return res.sendFile(`${variaveis_1.PATH}/public/typescript.html`);
+        return res.sendFile(`${variaveis_1.PATH}/src/public/typescript.html`);
     }
     flask(req, res) {
-        return res.sendFile(`${variaveis_1.PATH}/public/flask.html`);
+        return res.sendFile(`${variaveis_1.PATH}/src/public/flask.html`);
     }
 }
 exports.userController = new UserController();
