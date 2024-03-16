@@ -27,3 +27,8 @@
   from = "/python*"
   to = "/python"
   status = 200
+
+[[redirects]]
+  from = "/flask*"
+  to = "/flask"
+  status = 200  
