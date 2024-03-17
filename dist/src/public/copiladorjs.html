@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mente maker</title>
+  <link rel="icon" href="img/logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.9.1/styles/atom-one-dark.min.css">
+  
+  <meta property="og:title" content="Mente Maker">
+  <meta property="og:description" content="Plataforma">
+  <meta id="icon" property="og:image" content="https://mentemaker.onrender.com/img/logo.ico">
+  <meta property="og:url" content="https://mentemaker.onrender.com">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+      color: #111;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    #container {
+      width: 80%;
+      /* max-width: 800px; */
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s;
+    }
+    textarea {
+      width: 97%;
+      height: 350px;
+      margin-bottom: 10px;
+      font-size: 18px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: vertical;
+      spellcheck: false;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #resultado {
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      overflow: auto;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    .dark-mode {
+      background-color: #1e1e1e !important;
+      color: #d4d4d4 !important;
+    }
+    .dark-mode #container {
+      background-color: #252526 !important;
+    }
+    .dark-mode h1 {
+      color: #61dafb !important;
+    }
+    .dark-mode textarea {
+      background-color: #1e1e1e !important;
+      color: #d4d4d4 !important;
+    }
+    .dark-mode button {
+      background-color: #1e1e1e !important;
+      color: #d4d4d4 !important;
+    }
+    .dark-mode #resultado {
+      background-color: #1e1e1e !important;
+    }
+  </style>
+</head>
+<body>
+
+<div id="container">
+  <h1>Executar Código JavaScript</h1>
+  <p>Escreva seu código JavaScript abaixo e clique no botão "Executar" para ver o resultado:</p>
+  <div style="text-align: center; margin-top: 20px;">
+    <button onclick="toggleTheme()">Alterar Tema</button>
+  </div> <br>
+  <textarea id="code" placeholder="// Insira seu código aqui" spellcheck="false"></textarea>
+  <button onclick="executarCodigo()">Executar</button>
+  <div id="resultado"></div>
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.9.1/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<script>
+  function toggleTheme() {
+    const body = document.body;
+    const container = document.getElementById('container');
+    const textarea = document.getElementById('code');
+    const buttons = document.querySelectorAll('button');
+    const resultado = document.getElementById('resultado');
+
+    body.classList.toggle('dark-mode');
+    container.classList.toggle('dark-mode');
+    textarea.classList.toggle('dark-mode');
+    buttons.forEach(btn => btn.classList.toggle('dark-mode'));
+    resultado.classList.toggle('dark-mode');
+  }
+
+
+    function executarCodigo() {
+    var codigo = document.getElementById('code').value;
+    var consoleLog = console.log; // Salva a referência original para console.log
+    
+    // Redefine console.log para capturar a saída
+    var capturarSaida = [];
+    console.log = function() {
+      var mensagem = Array.prototype.slice.call(arguments).join(' ');
+      capturarSaida.push(mensagem);
+    };
+    
+    try {
+      // Executa o código JavaScript usando eval()
+      var resultado = eval(codigo);
+      
+      // Verifica se há saída capturada
+      var saidaCapturada = capturarSaida.join('<br>');
+      
+      // Se houver saída capturada, exibe-a
+      if (saidaCapturada) {
+        document.getElementById('resultado').innerHTML = saidaCapturada;
+      } else if (resultado === undefined) {
+        document.getElementById('resultado').innerHTML = "<pre>Nenhum resultado retornado</pre>";
+      } else {
+        // Mostra o resultado na div resultado
+        document.getElementById('resultado').innerHTML = "<pre>" + resultado + "</pre>";
+      }
+    } catch (error) {
+      // Se houver um erro, mostra na div resultado
+      document.getElementById('resultado').innerHTML = "<pre class='error'>" + error + "</pre>";
+    }
+    
+    // Restaura console.log para sua referência original
+    console.log = consoleLog;
+  }
+</script>
+
+</body>
+</html>

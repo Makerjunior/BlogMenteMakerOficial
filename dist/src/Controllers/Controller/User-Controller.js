@@ -21,5 +21,8 @@ class UserController {
     flask(req, res) {
         return res.sendFile(`${variaveis_1.PATH}/src/public/flask.html`);
     }
+    copiladorjs(req, res) {
+        return res.sendFile(`${variaveis_1.PATH}/src/public/copiladorjs.html`);
+    }
 }
 exports.userController = new UserController();

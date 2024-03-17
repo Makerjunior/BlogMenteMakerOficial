@@ -21,6 +21,10 @@ public typescript(req: Request, res: Response) {
 public flask(req: Request, res: Response) {
   return  res.sendFile(`${PATH}/src/public/flask.html`);
 }
+public copiladorjs(req: Request, res: Response) {
+  return  res.sendFile(`${PATH}/src/public/copiladorjs.html`);
+}
+
 }
 
 export const userController = new UserController();

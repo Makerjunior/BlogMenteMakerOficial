@@ -11,6 +11,7 @@ router.get(`${baseUrl}sobre`, userController.sobre);
 router.get(`${baseUrl}typescript`, userController.typescript);
 router.get(`${baseUrl}python`, userController.python);
 router.get(`${baseUrl}flask`, userController.flask);
+router.get(`${baseUrl}copiladorjs`, userController.copiladorjs);
 
 
 
