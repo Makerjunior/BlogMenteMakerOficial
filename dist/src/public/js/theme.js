@@ -1,4 +1,8 @@
 // theme.js
+var iconMetaTag = document.getElementById('icon');
+
+// Atualiza o conteúdo da meta tag para o caminho do seu ícone .png
+iconMetaTag.setAttribute('content', 'img/logo.png');
 
 // Função para alternar entre os temas
 function toggleTheme() {
