@@ -22,6 +22,12 @@
           <li><a href="/">Início</a></li>
           <li><a href="/blog">Blog</a></li>
           <li><a href="/sobre">Sobre</a></li>
+          <li >
+            <button id="botaoLer" onclick="toggleLeitura()" >
+                <span id="iconeLeitura"></span>
+                <span id="textoLeitura">Ouvir</span>
+            </button>
+        </li>
           <button class="theme-toggle" onclick="toggleTheme()">
             <span id="theme-icon">🌞</span> <!-- Ícone do tema claro -->
             <span id="theme-text"></span>
@@ -72,6 +78,45 @@
     </div>
   </footer>
 
+
+  <script>
+
+    const botaoLer = document.getElementById('botaoLer');
+    const textoParaLer = document.querySelector('p');
+    const audioPlayer = document.getElementById('audioPlayer');
+    let utterance;
+    let isLendo = false;
+    let lastCharIndex = 0;
+
+    botaoLer.addEventListener('click', function () {
+        const texto = textoParaLer.textContent;
+        if (texto !== '') {
+            if (!isLendo) {
+                isLendo = true;
+                botaoLer.classList.add('pausado'); // Adiciona a classe 'pausado' para alterar o ícone
+                botaoLer.textContent = 'Pausar';
+                utterance = new SpeechSynthesisUtterance(texto);
+                utterance.lang = 'pt-BR'; // Define o idioma como português do Brasil
+                utterance.onend = function () {
+                    isLendo = false;
+                    botaoLer.textContent = 'Ouvir';
+                    botaoLer.classList.remove('pausado'); // Remove a classe 'pausado' para alterar o ícone de volta para play
+                };
+                window.speechSynthesis.cancel(); // Cancela qualquer leitura em andamento
+                utterance.text = texto.substr(lastCharIndex);
+                window.speechSynthesis.speak(utterance);
+                audioPlayer.src = URL.createObjectURL(new Blob([texto], { type: 'text/plain' }));
+            } else {
+                isLendo = false;
+                botaoLer.classList.remove('pausado'); // Remove a classe 'pausado' para alterar o ícone de volta para play
+                botaoLer.textContent = 'Ouvir';
+                window.speechSynthesis.pause();
+            }
+        } else {
+            alert('O texto está vazio.');
+        }
+    });
+</script>
 
 <script src="js/theme.js"></script>
 </body>

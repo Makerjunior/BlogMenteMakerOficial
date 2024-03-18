@@ -39,9 +39,10 @@ window.onload = function () {
 
 
 
-ocument.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
 
   // Este código será executado assim que o DOM estiver pronto
   console.log('O DOM foi carregado');
   // Você pode adicionar outras ações ou manipulações aqui
 });
+

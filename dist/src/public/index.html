@@ -27,21 +27,36 @@
                     <li><a href="https://copiladoronline.onrender.com">Python Online</a></li>
                     <li><a href="/copiladorjs">JavaScript Online</a></li>
                     <li><a href="/sobre">Sobre</a></li>
-                    
-                    <button class="theme-toggle" onclick="toggleTheme()">
-                        <span id="theme-icon">🌞</span> <!-- Ícone do tema claro -->
-                        <span id="theme-text"></span>
-                    </button>            <!-- Adicione mais links conforme necessário -->
+                    <li>
+                        <button id="botaoLer" onclick="toggleLeitura()">
+                            <span id="iconeLeitura"></span>
+                            <span id="textoLeitura">Ouvir</span>
+                        </button>
+                    </li>
+
+                    <li>
+                        <button class="theme-toggle" onclick="toggleTheme()">
+                            <span id="theme-icon">🌞</span> <!-- Ícone do tema claro -->
+                            <span id="theme-text"></span>
+                        </button>
+                    </li>
+
+
+
+                    <!-- Adicione mais links conforme necessário -->
                 </ul>
-                    
+
+
             </nav>
         </div>
     </header>
     <main>
         <div class="container">
+
             <article class="article-text">
                 <h2>Mente Maker: Aprenda Programação de Forma Gratuita</h2>
                 <p>
+
                     O Mente Maker, idealizado por Junior Pereira, é um projeto dedicado a democratizar o acesso ao
                     conhecimento em programação e tecnologia.
                     Nossa missão é proporcionar educação de qualidade de forma gratuita, oferecendo uma ampla variedade
@@ -78,17 +93,14 @@
             </div>
             <h3>Tutoriais</h3>
             <div class="video-thumbnails">
-                <iframe width="300" height="200"
-                    src="https://www.youtube.com/embed/0uYJFAplt-c?si=Z4av81vC9nNuIPUB"
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/0uYJFAplt-c?si=Z4av81vC9nNuIPUB"
                     frameborder="0" allowfullscreen></iframe>
-                <iframe width="300" height="200"
-                    src="https://www.youtube.com/embed/t3_Uz2GdQuk?si=1it1kjNvyq5bkSWC"
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/t3_Uz2GdQuk?si=1it1kjNvyq5bkSWC"
                     frameborder="0" allowfullscreen></iframe>
-                <iframe width="300" height="200"
-                    src="https://www.youtube.com/embed/j9-uSv5OCBI?si=Fi0yXimorVx3P_EJ"
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/j9-uSv5OCBI?si=Fi0yXimorVx3P_EJ"
                     frameborder="0" allowfullscreen></iframe>
             </div>
-            
+
             <a href="https://www.youtube.com/@mentemaker">Confira o canal</a>
             <!-- Adicione mais artigos conforme necessário -->
             </section>
@@ -99,7 +111,46 @@
             <p>&copy; 2024 Mente Maker. Todos os direitos reservados.</p>
         </div>
     </footer>
-    
+
+
+    <script>
+
+        const botaoLer = document.getElementById('botaoLer');
+        const textoParaLer = document.querySelector('p');
+        const audioPlayer = document.getElementById('audioPlayer');
+        let utterance;
+        let isLendo = false;
+        let lastCharIndex = 0;
+
+        botaoLer.addEventListener('click', function () {
+            const texto = textoParaLer.textContent;
+            if (texto !== '') {
+                if (!isLendo) {
+                    isLendo = true;
+                    botaoLer.classList.add('pausado'); // Adiciona a classe 'pausado' para alterar o ícone
+                    botaoLer.textContent = 'Pausar';
+                    utterance = new SpeechSynthesisUtterance(texto);
+                    utterance.lang = 'pt-BR'; // Define o idioma como português do Brasil
+                    utterance.onend = function () {
+                        isLendo = false;
+                        botaoLer.textContent = 'Ouvir';
+                        botaoLer.classList.remove('pausado'); // Remove a classe 'pausado' para alterar o ícone de volta para play
+                    };
+                    window.speechSynthesis.cancel(); // Cancela qualquer leitura em andamento
+                    utterance.text = texto.substr(lastCharIndex);
+                    window.speechSynthesis.speak(utterance);
+                    audioPlayer.src = URL.createObjectURL(new Blob([texto], { type: 'text/plain' }));
+                } else {
+                    isLendo = false;
+                    botaoLer.classList.remove('pausado'); // Remove a classe 'pausado' para alterar o ícone de volta para play
+                    botaoLer.textContent = 'Ouvir';
+                    window.speechSynthesis.pause();
+                }
+            } else {
+                alert('O texto está vazio.');
+            }
+        });
+    </script>
 
     <script src="js/theme.js"></script>
 </body>
