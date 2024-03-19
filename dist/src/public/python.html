@@ -80,17 +80,19 @@
 
 
   <script>
-
-const botaoLer = document.getElementById('botaoLer');
-const textoParaLer = document.querySelector('p');
+ const botaoLer = document.getElementById('botaoLer');
 const audioPlayer = document.getElementById('audioPlayer');
 let utterance;
 let isLendo = false;
 let lastCharIndex = 0;
 
 botaoLer.addEventListener('click', function () {
-    const texto = textoParaLer.textContent;
-    if (texto !== '') {
+    // Encontrar o primeiro elemento de conteúdo após o cabeçalho
+    const primeiroElementoDeConteudo = document.querySelector('body > *:not(header)');
+    
+    // Verificar se foi encontrado algum elemento de conteúdo
+    if (primeiroElementoDeConteudo) {
+        const texto = pegarTextoElemento(primeiroElementoDeConteudo);
         if (!isLendo) {
             isLendo = true;
             botaoLer.classList.add('pausado'); // Adiciona a classe 'pausado' para alterar o ícone
@@ -106,7 +108,7 @@ botaoLer.addEventListener('click', function () {
             } else {
                 window.speechSynthesis.resume();
             }
-            utterance.text = texto.substr(lastCharIndex);
+            utterance.text = texto;
             window.speechSynthesis.speak(utterance);
             audioPlayer.src = URL.createObjectURL(new Blob([texto], { type: 'text/plain' }));
         } else {
@@ -116,9 +118,24 @@ botaoLer.addEventListener('click', function () {
             window.speechSynthesis.pause();
         }
     } else {
-        alert('O texto está vazio.');
+        alert('Não há conteúdo para ler.');
     }
 });
+
+// Função para pegar o texto de um elemento e seus filhos
+function pegarTextoElemento(elemento) {
+    let texto = '';
+    const filhos = elemento.childNodes;
+    filhos.forEach(filho => {
+        if (filho.nodeType === Node.TEXT_NODE) {
+            texto += filho.textContent.trim() + ' ';
+        } else if (filho.nodeType === Node.ELEMENT_NODE) {
+            texto += pegarTextoElemento(filho);
+        }
+    });
+    return texto.trim();
+}
+
 </script>
 
 <script src="js/theme.js"></script>
