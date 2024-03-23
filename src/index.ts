@@ -1,7 +1,7 @@
 import express = require("express");
 import { router } from "./router";
 import path = require("path");
-
+  // 
 class  Main{
   private _server;
   constructor(){
