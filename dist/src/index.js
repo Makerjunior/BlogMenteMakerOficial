@@ -4,6 +4,7 @@ exports.main = void 0;
 const express = require("express");
 const router_1 = require("./router");
 const path = require("path");
+// 
 class Main {
     constructor() {
         this._server = express();

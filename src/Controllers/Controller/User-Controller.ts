@@ -24,7 +24,12 @@ public flask(req: Request, res: Response) {
 public copiladorjs(req: Request, res: Response) {
   return  res.sendFile(`${PATH}/src/public/copiladorjs.html`);
 }
-
+public nodemon(req: Request, res: Response) {
+  return  res.sendFile(`${PATH}/src/public/nodemon.html`);
+}
+public express(req: Request, res: Response) {
+  return  res.sendFile(`${PATH}/src/public/express.html`);
+}
 }
 
 export const userController = new UserController();

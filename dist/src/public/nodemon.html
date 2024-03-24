@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mente Maker -  Nodemon</title>
+    <link rel="icon" href="img/logo.ico" type="image/x-icon">
+
+    <meta property="og:title" content="Mente Maker">
+    <meta property="og:description" content="Tutorial: Hello, World! com Flask em Python">
+    <meta property="og:image" content="https://mentemaker.onrender.com/img/logo.ico">
+    <meta property="og:url" content="https://mentemaker.onrender.com">
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="light-mode">
+    <header>
+        <div class="container">
+            <h1>Nodemon</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Início</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/sobre">Sobre</a></li>
+                    <li>
+                        <button id="botaoLer" onclick="toggleLeitura()">
+                            <span id="iconeLeitura"></span>
+                            <span id="textoLeitura">Ouvir</span>
+                        </button>
+                    </li>
+
+                    <button class="theme-toggle" onclick="toggleTheme()">
+                        <span id="theme-icon">🌞</span> <!-- Ícone do tema claro -->
+                        <span id="theme-text"></span>
+                    </button>
+                    <!-- Adicione mais links conforme necessário -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+
+
+            <article>
+                <h2>Entendendo o Nodemon: Um Guia para Desenvolvedores Node.js</h2>
+                <p>O Nodemon é uma ferramenta que ajuda no desenvolvimento de aplicativos Node.js, monitorando as
+                    alterações nos arquivos do projeto e reiniciando automaticamente o servidor. Neste guia, vamos
+                    explorar o que é o Nodemon, por que você deveria usá-lo e como integrá-lo aos seus projetos Node.js.
+                </p>
+
+                <h3>O que é o Nodemon?</h3>
+                <p>O Nodemon é uma ferramenta de desenvolvimento para Node.js que monitora os arquivos do seu aplicativo
+                    em busca de alterações. Sempre que um arquivo é modificado, o Nodemon reinicia automaticamente o
+                    servidor Node.js, permitindo que você veja as mudanças refletidas em tempo real, sem a necessidade
+                    de reiniciar manualmente o servidor a cada vez.</p>
+
+                <h3>Por que usar o Nodemon?</h3>
+                <p>O Nodemon oferece várias vantagens para os desenvolvedores Node.js:</p>
+                <ul>
+                    <li><strong>Atualizações automáticas:</strong> Com o Nodemon, você não precisa se preocupar em
+                        reiniciar manualmente o servidor toda vez que fizer uma alteração nos arquivos do seu projeto.
+                        Ele faz isso automaticamente para você.</li>
+                    <li><strong>Economiza tempo:</strong> O Nodemon economiza tempo durante o desenvolvimento, pois
+                        elimina a necessidade de interromper e reiniciar o servidor a cada vez que você faz uma
+                        alteração no código.</li>
+                    <li><strong>Facilita o desenvolvimento:</strong> Com atualizações automáticas, você pode se
+                        concentrar mais na codificação e menos na parte de gerenciamento do servidor.</li>
+                    <li><strong>Integração simples:</strong> O Nodemon pode ser facilmente integrado aos seus projetos
+                        Node.js existentes, tornando-o uma ferramenta valiosa para desenvolvedores que desejam aumentar
+                        sua produtividade.</li>
+                </ul>
+
+                <h3>Como instalar o Nodemon</h3>
+                <p>Para instalar o Nodemon globalmente em seu sistema, você pode usar o npm (Node Package Manager)
+                    através do seguinte comando no terminal:</p>
+                <div class="code-box">
+                    <pre><code>npm install -g nodemon</code></pre>
+                </div>
+                <p>Isso instalará o Nodemon globalmente em seu sistema, permitindo que você o utilize em qualquer
+                    projeto Node.js que desejar.</p>
+
+                <h3>Como usar o Nodemon</h3>
+                <p>Usar o Nodemon é bastante simples. Basta navegar até o diretório do seu projeto Node.js no terminal e
+                    executar o seguinte comando:</p>
+                <div class="code-box">
+                    <pre><code>nodemon app.js</code></pre>
+                </div>
+                <p>Substitua "app.js" pelo nome do arquivo principal do seu aplicativo Node.js, se for diferente. O
+                    Nodemon iniciará o servidor e começará a monitorar os arquivos do projeto em busca de alterações.
+                    Sempre que um arquivo é modificado, o servidor é reiniciado automaticamente para refletir as
+                    mudanças.</p>
+
+                <h3>Exemplo de Uso do Nodemon</h3>
+                <p>Vamos criar um aplicativo Node.js simples e usar o Nodemon para monitorar as alterações:</p>
+
+                <h4>Passo 1: Instalação do Nodemon</h4>
+                <p>Se você ainda não instalou o Nodemon globalmente, faça isso usando o seguinte comando:</p>
+                <div class="code-box">
+                    <pre><code>npm install -g nodemon</code></pre>
+                </div>
+
+                <h4>Passo 2: Criação do Aplicativo Node.js</h4>
+                <p>Crie um diretório para o seu projeto e navegue até ele no terminal. Em seguida, crie um arquivo
+                    JavaScript chamado <code>app.js</code> e adicione o seguinte código:</p>
+                <div class="code-box">
+                    <pre><code>const http = require('http');
+        
+        const server = http.createServer((req, res) => {
+          res.writeHead(200, {'Content-Type': 'text/plain'});
+          res.end('Hello, World!');
+        });
+        
+        server.listen(3000, () => {
+          console.log('Servidor Node.js em execução na porta 3000');
+        });</code></pre>
+                </div>
+
+                <h4>Passo 3: Executando o Nodemon</h4>
+                <p>No terminal, navegue até o diretório do seu projeto e execute o seguinte comando para iniciar o
+                    servidor Node.js com o Nodemon:</p>
+                <div class="code-box">
+                    <pre><code>nodemon app.js</code></pre>
+                </div>
+
+                <h3>Conclusão</h3>
+                <p>O Nodemon é uma ferramenta essencial para desenvolvedores Node.js, ajudando a agilizar o processo de
+                    desenvolvimento e aumentar a produtividade. Ao monitorar automaticamente as alterações nos arquivos
+                    do projeto e reiniciar o servidor quando necessário, o Nodemon simplifica o fluxo de trabalho do
+                    desenvolvedor e permite que você se concentre na escrita de código de qualidade.</p>
+
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Mente Maker. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        const botaoLer = document.getElementById('botaoLer');
+        const audioPlayer = document.getElementById('audioPlayer');
+        let utterance;
+        let isLendo = false;
+        let lastCharIndex = 0;
+
+        botaoLer.addEventListener('click', function () {
+            // Encontrar o primeiro elemento de conteúdo após o cabeçalho
+            const primeiroElementoDeConteudo = document.querySelector('body > *:not(header)');
+
+            // Verificar se foi encontrado algum elemento de conteúdo
+            if (primeiroElementoDeConteudo) {
+                const texto = pegarTextoElemento(primeiroElementoDeConteudo);
+                if (!isLendo) {
+                    isLendo = true;
+                    botaoLer.classList.add('pausado'); // Adiciona a classe 'pausado' para alterar o ícone
+                    botaoLer.textContent = 'Pausar';
+                    if (!utterance) {
+                        utterance = new SpeechSynthesisUtterance(texto);
+                        utterance.lang = 'pt-BR'; // Define o idioma como português do Brasil
+                        utterance.onend = function () {
+                            isLendo = false;
+                            botaoLer.textContent = 'Ouvir';
+                            botaoLer.classList.remove('pausado'); // Remove a classe 'pausado' para alterar o ícone de volta para play
+                        };
+                    } else {
+                        window.speechSynthesis.resume();
+                    }
+                    utterance.text = texto;
+                    window.speechSynthesis.speak(utterance);
+                    audioPlayer.src = URL.createObjectURL(new Blob([texto], { type: 'text/plain' }));
+                } else {
+                    isLendo = false;
+                    botaoLer.classList.remove('pausado'); // Remove a classe 'pausado' para alterar o ícone de volta para play
+                    botaoLer.textContent = 'Ouvir';
+                    window.speechSynthesis.pause();
+                }
+            } else {
+                alert('Não há conteúdo para ler.');
+            }
+        });
+
+        // Função para pegar o texto de um elemento e seus filhos
+        function pegarTextoElemento(elemento) {
+            let texto = '';
+            const filhos = elemento.childNodes;
+            filhos.forEach(filho => {
+                if (filho.nodeType === Node.TEXT_NODE) {
+                    texto += filho.textContent.trim() + ' ';
+                } else if (filho.nodeType === Node.ELEMENT_NODE) {
+                    texto += pegarTextoElemento(filho);
+                }
+            });
+            return texto.trim();
+        }
+
+    </script>
+
+    <script src="js/theme.js"></script>
+</body>
+
+</html>

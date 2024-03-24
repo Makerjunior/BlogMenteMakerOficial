@@ -1,0 +1,29 @@
+img {
+    height: 50px;
+    width: 100px;
+    border-radius: 0px 0px 10px;
+  }
+
+  .post-list {
+    list-style: none;
+  }
+
+  .post {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .post-content {
+    padding: 10px;
+  }
+
+  .post-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+
+  .post-description {
+    font-size: 1em;
+  }

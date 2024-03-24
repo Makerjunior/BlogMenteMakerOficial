@@ -24,5 +24,11 @@ class UserController {
     copiladorjs(req, res) {
         return res.sendFile(`${variaveis_1.PATH}/src/public/copiladorjs.html`);
     }
+    nodemon(req, res) {
+        return res.sendFile(`${variaveis_1.PATH}/src/public/nodemon.html`);
+    }
+    express(req, res) {
+        return res.sendFile(`${variaveis_1.PATH}/src/public/express.html`);
+    }
 }
 exports.userController = new UserController();

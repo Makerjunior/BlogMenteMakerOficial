@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mente Maker - Express </title>
+  <link rel="icon" href="img/logo.ico" type="image/x-icon">
+
+  <meta property="og:title" content="Mente Maker">
+  <meta property="og:description" content="Tutorial: Hello, World! com Flask em Python">
+  <meta property="og:image" content="https://mentemaker.onrender.com/img/logo.ico">
+  <meta property="og:url" content="https://mentemaker.onrender.com">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="light-mode">
+  <header>
+    <div class="container">
+      <h1>Express</h1>
+      <nav>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/sobre">Sobre</a></li>
+          <li >
+            <button id="botaoLer" onclick="toggleLeitura()" >
+                <span id="iconeLeitura"></span>
+                <span id="textoLeitura">Ouvir</span>
+            </button>
+        </li>
+
+          <button class="theme-toggle" onclick="toggleTheme()">
+            <span id="theme-icon">🌞</span> <!-- Ícone do tema claro -->
+            <span id="theme-text"></span>
+        </button> 
+          <!-- Adicione mais links conforme necessário -->
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+    
+        <article>
+            <h2>Entendendo o Express: Um Guia para Iniciantes</h2>
+            <p>O Express é um framework web minimalista e flexível para Node.js que simplifica o desenvolvimento de aplicativos da web. Neste guia, vamos explorar os conceitos básicos do Express e como começar a usá-lo em seus projetos.</p>
+            
+            <h3>O que é o Express?</h3>
+            <p>O Express é um framework web rápido, não opinativo e cheio de recursos para Node.js. Ele fornece uma série de recursos essenciais para o desenvolvimento de aplicativos web, como:</p>
+            <ul>
+                <li><strong>Roteamento:</strong> O Express oferece um sistema de roteamento simples e flexível que permite mapear URLs para funções de manipulação de solicitações.</li>
+                <li><strong>Middleware:</strong> O Express utiliza middleware para processar solicitações HTTP. Isso permite que você adicione funcionalidades extras, como análise de corpo, autenticação, e muito mais, à sua aplicação.</li>
+                <li><strong>Gerenciamento de sessão:</strong> O Express facilita o gerenciamento de sessões de usuário e cookies.</li>
+                <li><strong>Integração com motores de modelo:</strong> O Express oferece suporte a uma variedade de motores de modelo populares, como Handlebars, EJS e Pug, para renderizar HTML dinamicamente.</li>
+                <li><strong>Manipulação de solicitação e resposta:</strong> O Express simplifica a manipulação de solicitações e respostas HTTP, oferecendo métodos convenientes para enviar e receber dados.</li>
+            </ul>
+            
+            <h3>Por que usar o Express?</h3>
+            <p>O Express é amplamente adotado pela comunidade Node.js devido à sua simplicidade, flexibilidade e desempenho. Aqui estão algumas razões para considerar o uso do Express em seus projetos:</p>
+            <ul>
+                <li><strong>Velocidade de desenvolvimento:</strong> O Express permite que você desenvolva aplicativos web rapidamente, graças à sua sintaxe simples e intuitiva.</li>
+                <li><strong>Flexibilidade:</strong> O Express é altamente flexível e permite que você escolha as ferramentas e bibliotecas que melhor se adequam às suas necessidades.</li>
+                <li><strong>Comunidade ativa:</strong> O Express possui uma comunidade ativa de desenvolvedores que contribuem com extensões, tutoriais e suporte técnico.</li>
+                <li><strong>Escalabilidade:</strong> O Express é adequado para construir tanto pequenas APIs como grandes aplicativos corporativos devido à sua arquitetura modular e extensível.</li>
+            </ul>
+            
+            <h3>Como começar com o Express</h3>
+            <p>Para começar a usar o Express, primeiro você precisa ter o Node.js instalado em seu sistema. Em seguida, você pode instalar o Express em seu projeto utilizando o npm (Node Package Manager). Abra o terminal e execute o seguinte comando:</p>
+            <div class="code-box">
+                <pre><code>npm install express</code></pre>
+            </div>
+            <p>Isso instalará o Express e suas dependências em seu projeto.</p>
+            
+            <p>Agora, você pode criar um arquivo JavaScript para seu aplicativo Express e começar a definir rotas, adicionar middleware e construir sua aplicação da web. Abaixo está um exemplo simples de um aplicativo Express que define uma rota raiz e inicia o servidor:</p>
+            <div class="code-box">
+                <pre><code>const express = require('express');
+        const app = express();
+        
+        app.get('/', (req, res) => {
+            res.send('Hello, World!');
+        });
+        
+        app.listen(3000, () => {
+            console.log('Servidor Express em execução na porta 3000');
+        });</code></pre>
+            </div>
+            
+    
+
+
+            <h4>Criando um aplicativo Express</h4>
+            <p>Agora, crie um arquivo JavaScript (por exemplo, <code>app.js</code>) e adicione o seguinte código para criar um aplicativo Express básico:</p>
+            <div class="code-box">
+                <pre><code>const express = require('express');
+        const app = express();
+        
+        // Definindo uma rota para servir a página HTML
+        app.get('/', (req, res) => {
+            res.sendFile(__dirname + '/index.html');
+        });
+        
+        // Iniciando o servidor na porta 3000
+        app.listen(3000, () => {
+            console.log('Servidor Express iniciado na porta 3000');
+        });</code></pre>
+            </div>
+            <p>Neste exemplo, estamos definindo uma rota para a raiz do nosso aplicativo (<code>'/'</code>) e, quando essa rota é acessada, o Express envia o arquivo HTML chamado <code>index.html</code>.</p>
+            
+            <h4> Criando a página HTML</h4>
+            <p>Agora, crie um arquivo HTML chamado <code>index.html</code> no mesmo diretório do seu arquivo JavaScript (<code>app.js</code>) e adicione o conteúdo HTML desejado.</p>
+            <div class="code-box">
+                <pre><code>&lt;!DOCTYPE html&gt;
+        &lt;html lang="en"&gt;
+        &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Minha Página&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;h1&gt;Olá, Mundo!&lt;/h1&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;</code></pre>
+            </div>
+            
+            <h4> Iniciando o servidor Express</h4>
+            <p>Por fim, execute o arquivo JavaScript (<code>app.js</code>) digitando o seguinte comando no terminal:</p>
+            <div class="code-box">
+                <pre><code>node app.js</code></pre>
+            </div>
+            <p>Isso iniciará o servidor Express na porta 3000. Agora você pode acessar a página HTML acessando <code>http://localhost:3000</code> em seu navegador.</p>
+            
+            <h3>Conclusão</h3>
+            <p>O Express é um framework web poderoso e flexível que simplifica o processo de criação de aplicativos web em Node.js. Neste guia, exploramos como você pode usar o Express para disponibilizar uma página HTML simples. Este é apenas o começo de sua jornada com o Express, e há muito mais recursos e funcionalidades para explorar!</p>
+        </article>
+            
+          
+
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Mente Maker. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+
+  <script>
+ const botaoLer = document.getElementById('botaoLer');
+const audioPlayer = document.getElementById('audioPlayer');
+let utterance;
+let isLendo = false;
+let lastCharIndex = 0;
+
+botaoLer.addEventListener('click', function () {
+    // Encontrar o primeiro elemento de conteúdo após o cabeçalho
+    const primeiroElementoDeConteudo = document.querySelector('body > *:not(header)');
+    
+    // Verificar se foi encontrado algum elemento de conteúdo
+    if (primeiroElementoDeConteudo) {
+        const texto = pegarTextoElemento(primeiroElementoDeConteudo);
+        if (!isLendo) {
+            isLendo = true;
+            botaoLer.classList.add('pausado'); // Adiciona a classe 'pausado' para alterar o ícone
+            botaoLer.textContent = 'Pausar';
+            if (!utterance) {
+                utterance = new SpeechSynthesisUtterance(texto);
+                utterance.lang = 'pt-BR'; // Define o idioma como português do Brasil
+                utterance.onend = function () {
+                    isLendo = false;
+                    botaoLer.textContent = 'Ouvir';
+                    botaoLer.classList.remove('pausado'); // Remove a classe 'pausado' para alterar o ícone de volta para play
+                };
+            } else {
+                window.speechSynthesis.resume();
+            }
+            utterance.text = texto;
+            window.speechSynthesis.speak(utterance);
+            audioPlayer.src = URL.createObjectURL(new Blob([texto], { type: 'text/plain' }));
+        } else {
+            isLendo = false;
+            botaoLer.classList.remove('pausado'); // Remove a classe 'pausado' para alterar o ícone de volta para play
+            botaoLer.textContent = 'Ouvir';
+            window.speechSynthesis.pause();
+        }
+    } else {
+        alert('Não há conteúdo para ler.');
+    }
+});
+
+// Função para pegar o texto de um elemento e seus filhos
+function pegarTextoElemento(elemento) {
+    let texto = '';
+    const filhos = elemento.childNodes;
+    filhos.forEach(filho => {
+        if (filho.nodeType === Node.TEXT_NODE) {
+            texto += filho.textContent.trim() + ' ';
+        } else if (filho.nodeType === Node.ELEMENT_NODE) {
+            texto += pegarTextoElemento(filho);
+        }
+    });
+    return texto.trim();
+}
+
+</script>
+
+<script src="js/theme.js"></script>
+</body>
+</html>
