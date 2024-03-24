@@ -1,6 +1,6 @@
 
 import { main } from ".";
 
-const port:number= 80;
-main.server.listen(port,
-     () => console.log(`Server is running ${port}`));
+
+main.server.listen(80 ,
+     () => console.log(`Server is running 80`));
